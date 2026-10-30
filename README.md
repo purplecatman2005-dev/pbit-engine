@@ -2,6 +2,13 @@
 
 p-bit(probabilistic bit)による連想記憶型の画像認識エンジン。外部依存なし、C++23単体。
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/recall-dark.png">
+  <img alt="25%ノイズの数字8をp-bitネットワークが復元する様子" src="docs/recall-light.png" width="420">
+</picture>
+
+*25% の画素を反転させた「8」を、p-bit ネットワークのアニーリングで元の形に復元(`demo.exe` の出力)*
+
 ## p-bitとは
 
 量子ビットが重ね合わせ状態を持つのに対し、p-bitは **0/1の間を高速に揺らぎ続ける古典ビット**(Camsari らが提唱)。更新則は1行:
@@ -23,6 +30,12 @@ m_i = sgn( tanh(β·I_i) − r ),   r ~ U(−1,1),   I_i = Σ_j J_ij·m_j + h_i
 5. **分類**: 格納パターンとのオーバーラップ最大の数字を出力
 
 ## 結果(100試行×10数字)
+
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/accuracy-dark.png">
+  <img alt="画素反転ノイズに対する分類精度の推移" src="docs/accuracy-light.png" width="560">
+</picture>
 
 | 画素反転ノイズ | 分類精度 | 復元オーバーラップ |
 |---|---|---|
